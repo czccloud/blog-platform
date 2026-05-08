@@ -1,4 +1,3 @@
-import { getServerSupabase } from "@/lib/supabase/server";
 import { getAdminClient } from "@/lib/supabase/admin";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
@@ -7,6 +6,7 @@ import LetterHeader from "@/components/LetterHeader";
 import LetterFooter from "@/components/LetterFooter";
 
 export const revalidate = 3600;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const supabase = getAdminClient();
@@ -16,11 +16,11 @@ export async function generateStaticParams() {
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const supabase = await getServerSupabase();
+  const supabase = getAdminClient();
 
   const { data: post } = await supabase
     .from("posts")
-    .select("*, profiles!inner(display_name)")
+    .select("*, profiles(display_name)")
     .eq("slug", slug)
     .eq("status", "published")
     .single();
