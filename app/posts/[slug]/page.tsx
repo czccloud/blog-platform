@@ -1,22 +1,25 @@
-import { getAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@supabase/supabase-js";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import LetterHeader from "@/components/LetterHeader";
 import LetterFooter from "@/components/LetterFooter";
 
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+);
+
 export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const supabase = getAdminClient();
   const { data } = await supabase.from("posts").select("slug").eq("status", "published");
   return (data || []).map((p: { slug: string }) => ({ slug: p.slug }));
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const supabase = getAdminClient();
 
   const { data: post } = await supabase
     .from("posts")
