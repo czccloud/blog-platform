@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream-50: #fef9f0;
+  --color-cream-100: #fdf2e3;
+  --color-cream-200: #f0e6da;
+  --color-cream-300: #e8d5c4;
+  --color-cream-400: #e8c4a2;
+  --color-cream-500: #c4956a;
+  --color-cream-600: #b8875c;
+  --color-cream-700: #a67b5b;
+  --color-cream-800: #8b6f5e;
+  --color-cream-900: #5c4033;
+  --color-cream-950: #3d2b1f;
+
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--color-cream-50), var(--color-cream-100));
+  min-height: 100vh;
+  color: var(--color-cream-950);
+}
