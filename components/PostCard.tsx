@@ -15,10 +15,6 @@ interface Post {
 }
 
 export default function PostCard({ post }: { post: Post }) {
-  const weatherEmoji = post.weather
-    ? { "晴": "☀️", "雨": "🌧️", "阴": "☁️", "雪": "❄️" }[post.weather] || "📝"
-    : "📝";
-
   return (
     <Link
       href={`/posts/${post.slug}`}
@@ -28,16 +24,12 @@ export default function PostCard({ post }: { post: Post }) {
       <div className="tape absolute -top-1.5 right-3 w-8 h-2.5 rotate-3" />
 
       <div className="flex gap-3">
-        {/* Thumbnail */}
-        <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-cream-100">
-          {post.cover_image ? (
+        {/* Thumbnail - only show if cover image exists */}
+        {post.cover_image && (
+          <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
             <img src={post.cover_image} alt="" className="w-full h-full object-cover img-hover" />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-cream-200 to-cream-300 flex items-center justify-center text-2xl">
-              {weatherEmoji}
-            </div>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="min-w-0 flex-1">
           <h3 className="font-semibold text-cream-950 text-sm truncate group-hover:text-cream-700 transition-colors">

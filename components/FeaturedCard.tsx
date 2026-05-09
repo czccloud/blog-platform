@@ -31,16 +31,12 @@ export default function FeaturedCard({ post }: { post: Post }) {
       <div className="tape absolute -top-2 left-8 w-12 h-5 -rotate-3 z-10" />
       <div className="tape absolute -top-2 right-10 w-10 h-4 rotate-2 z-10" />
 
-      {/* Cover image */}
-      <div className="aspect-[16/10] overflow-hidden">
-        {post.cover_image ? (
+      {/* Cover image - only show if exists */}
+      {post.cover_image && (
+        <div className="aspect-[16/10] overflow-hidden">
           <img src={post.cover_image} alt="" className="w-full h-full object-cover img-hover" />
-        ) : (
-          <div className="w-full h-full bg-gradient-to-br from-cream-200 via-cream-300 to-cream-400 flex items-center justify-center">
-            <span className="text-5xl opacity-40">📷</span>
-          </div>
-        )}
-      </div>
+        </div>
+      )}
 
       <div className="p-5">
         {/* Meta row */}
