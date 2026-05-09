@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import LetterHeader from "@/components/LetterHeader";
 import LetterFooter from "@/components/LetterFooter";
+import CommentSection from "@/components/CommentSection";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -52,6 +53,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
         <LetterFooter authorName={(post.profiles as any).display_name} />
       </div>
+      <CommentSection postId={post.id} />
     </article>
   );
 }
