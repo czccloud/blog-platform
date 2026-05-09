@@ -1,0 +1,147 @@
+<h2>首页布局三大方案</h2>
+<p class="subtitle">选一个你喜欢的方向</p>
+
+<div class="cards">
+  <div class="card" data-choice="diary" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-family:system-ui,sans-serif;max-width:480px;margin:0 auto;background:linear-gradient(180deg,#fef9f0,#fdf2e3);padding:16px;border-radius:12px">
+        <!-- Header -->
+        <div style="text-align:center;margin-bottom:20px">
+          <div style="font-family:Fredoka,cursive;font-size:18px;font-weight:700;color:#3d2b1f;margin-bottom:4px">✂️ 我们的剪贴簿</div>
+          <div style="display:flex;gap:12px;justify-content:center;font-size:11px;color:#8b6f5e">
+            <span>📸 影集</span><span>💝 心愿</span>
+          </div>
+        </div>
+        <!-- Timeline entries -->
+        <div style="position:relative;padding-left:24px">
+          <div style="position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#c4956a,#e8c4a2,#f0e6da)"></div>
+          <div style="margin-bottom:16px;position:relative">
+            <div style="position:absolute;left:-20px;top:4px;width:10px;height:10px;background:#c4956a;border-radius:50%;border:2px solid #fef9f0"></div>
+            <div style="font-size:9px;color:#c4956a;margin-bottom:3px">3月15日 ☀️</div>
+            <div style="background:#fffef9;border-radius:12px;border:2px solid #f0e6da;padding:12px;box-shadow:0 4px 0 #f0e6da">
+              <div style="font-weight:700;color:#3d2b1f;font-size:13px;margin-bottom:3px">春天来了，去爬山吧</div>
+              <div style="font-size:10px;color:#8b6f5e;line-height:1.4">三月的风还带着凉意，阳光暖洋洋的...</div>
+              <div style="display:flex;gap:6px;margin-top:6px">
+                <div style="width:40px;height:40px;background:linear-gradient(135deg,#7ec8a0,#5daa80);border-radius:6px"></div>
+                <div style="width:40px;height:40px;background:linear-gradient(135deg,#e8b88a,#d4a06a);border-radius:6px"></div>
+                <div style="width:40px;height:40px;background:linear-gradient(135deg,#8badd4,#5a82a8);border-radius:6px"></div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-bottom:8px;position:relative">
+            <div style="position:absolute;left:-20px;top:4px;width:10px;height:10px;background:#e8c4a2;border-radius:50%;border:2px solid #fef9f0"></div>
+            <div style="font-size:9px;color:#c4956a;margin-bottom:3px">3月10日 🌧️</div>
+            <div style="background:#fffef9;border-radius:12px;border:2px solid #f0e6da;padding:10px;box-shadow:0 3px 0 #f0e6da">
+              <div style="font-weight:700;color:#3d2b1f;font-size:12px">在家煮一锅热汤</div>
+              <div style="font-size:10px;color:#999;margin-top:2px">李四 · 💬 1</div>
+            </div>
+          </div>
+          <div style="position:relative">
+            <div style="position:absolute;left:-20px;top:4px;width:10px;height:10px;background:#f0e6da;border-radius:50%;border:2px solid #fef9f0"></div>
+            <div style="font-size:9px;color:#c4956a;margin-bottom:3px">3月5日 ☁️</div>
+            <div style="background:#fffef9;border-radius:12px;border:1px solid #f0e6da;padding:10px">
+              <div style="font-weight:700;color:#3d2b1f;font-size:12px">最近在读的书</div>
+              <div style="font-size:10px;color:#999;margin-top:2px">王五 · 💬 5</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>时间线日记</h3>
+      <p>左侧时间轴 + 右侧日记卡片，按日期排列。有照片的卡片更大，没照片的紧凑。像翻看日记本一样自然。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="album" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-family:system-ui,sans-serif;max-width:480px;margin:0 auto;background:linear-gradient(180deg,#fef9f0,#fdf2e3);padding:16px;border-radius:12px">
+        <div style="text-align:center;margin-bottom:16px">
+          <div style="font-family:Fredoka,cursive;font-size:18px;font-weight:700;color:#3d2b1f;margin-bottom:2px">✂️ 我们的剪贴簿</div>
+        </div>
+        <!-- Photo-album grid -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="background:#fffef9;border-radius:14px;border:2px solid #f0e6da;box-shadow:0 4px 0 #f0e6da;overflow:hidden">
+            <div style="height:100px;background:linear-gradient(135deg,#7ec8a0,#5daa80);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px">⛰️</div>
+            <div style="padding:8px 10px">
+              <div style="font-weight:700;color:#3d2b1f;font-size:11px">春天，去爬山</div>
+              <div style="font-size:9px;color:#999;margin-top:1px">张三 · 3/15</div>
+            </div>
+          </div>
+          <div style="background:#fffef9;border-radius:14px;border:2px solid #f0e6da;box-shadow:0 4px 0 #f0e6da;overflow:hidden">
+            <div style="height:100px;background:linear-gradient(135deg,#e8b88a,#d4a06a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px">🍲</div>
+            <div style="padding:8px 10px">
+              <div style="font-weight:700;color:#3d2b1f;font-size:11px">家的味道</div>
+              <div style="font-size:9px;color:#999;margin-top:1px">李四 · 3/10</div>
+            </div>
+          </div>
+          <div style="background:#fffef9;border-radius:14px;border:1px solid #f0e6da;padding:12px">
+            <div style="font-weight:700;color:#3d2b1f;font-size:11px">📚 最近在读的书</div>
+            <div style="font-size:9px;color:#999;margin-top:2px">王五 · 3/5</div>
+          </div>
+          <div style="background:#fffef9;border-radius:14px;border:1px solid #f0e6da;padding:12px">
+            <div style="font-weight:700;color:#3d2b1f;font-size:11px">☕ 新发现的咖啡馆</div>
+            <div style="font-size:9px;color:#999;margin-top:2px">张三 · 3/1</div>
+          </div>
+        </div>
+        <!-- Feature buttons -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+          <div style="background:linear-gradient(135deg,#fef9f0,#fdf2e3);border-radius:12px;padding:10px;text-align:center;border:2px dashed #e8d5c4;font-size:11px;font-weight:700;color:#8b6f5e">📸 影集</div>
+          <div style="background:linear-gradient(135deg,#fef9f0,#fdf2e3);border-radius:12px;padding:10px;text-align:center;border:2px dashed #e8d5c4;font-size:11px;font-weight:700;color:#8b6f5e">💝 心愿单</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>相册网格 + 功能区</h3>
+      <p>有封面的文章像照片一样展示，没封面的用文字卡片。影集和心愿入口做成醒目的大按钮。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="simple" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-family:system-ui,sans-serif;max-width:480px;margin:0 auto;background:linear-gradient(180deg,#fef9f0,#fdf2e3);padding:16px;border-radius:12px">
+        <!-- Clean list -->
+        <div style="text-align:center;margin-bottom:16px">
+          <div style="font-family:Fredoka,cursive;font-size:16px;font-weight:700;color:#3d2b1f">✂️ 我们的剪贴簿</div>
+        </div>
+        <!-- Feature pills -->
+        <div style="display:flex;gap:8px;justify-content:center;margin-bottom:16px">
+          <div style="background:#c4956a;color:#fff;padding:5px 14px;border-radius:20px;font-size:10px;font-weight:600">📝 文章</div>
+          <div style="background:#f0e6da;color:#8b6f5e;padding:5px 14px;border-radius:20px;font-size:10px">📸 影集</div>
+          <div style="background:#f0e6da;color:#8b6f5e;padding:5px 14px;border-radius:20px;font-size:10px">💝 心愿</div>
+        </div>
+        <!-- Article list - clean -->
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="background:#fffef9;border-radius:10px;padding:12px 14px;border:1px solid #f0e6da;display:flex;align-items:center;gap:12px">
+            <div style="width:48px;height:48px;background:linear-gradient(135deg,#7ec8a0,#5daa80);border-radius:8px;flex-shrink:0"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;color:#3d2b1f;font-size:12px">春天来了，去爬山吧</div>
+              <div style="font-size:9px;color:#999;margin-top:2px">张三 · 3月15日 · ☀️ · 💬 3</div>
+            </div>
+            <span style="color:#c4956a;font-size:14px">→</span>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;padding:12px 14px;border:1px solid #f0e6da;display:flex;align-items:center;gap:12px">
+            <div style="width:48px;height:48px;background:linear-gradient(135deg,#e8b88a,#d4a06a);border-radius:8px;flex-shrink:0"></div>
+            <div style="flex:1;min-width:0">
+              <div style="font-weight:700;color:#3d2b1f;font-size:12px">在家煮一锅热汤</div>
+              <div style="font-size:9px;color:#999;margin-top:2px">李四 · 3月10日 · 🌧️ · 💬 1</div>
+            </div>
+            <span style="color:#c4956a;font-size:14px">→</span>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;padding:10px 14px;border:1px solid #f0e6da">
+            <div style="font-weight:700;color:#3d2b1f;font-size:12px">📚 最近在读的书</div>
+            <div style="font-size:9px;color:#999;margin-top:1px">王五 · 3月5日 · 💬 5</div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;padding:10px 14px;border:1px solid #f0e6da">
+            <div style="font-weight:700;color:#3d2b1f;font-size:12px">☕ 新发现的咖啡馆</div>
+            <div style="font-size:9px;color:#999;margin-top:1px">张三 · 3月1日 · 💬 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>极简列表 + Tab 导航</h3>
+      <p>顶部圆角 Tab 切换文章/影集/心愿。有封面的文章带缩略图，没封面的纯文字。最轻量，加载最快。</p>
+    </div>
+  </div>
+</div>
