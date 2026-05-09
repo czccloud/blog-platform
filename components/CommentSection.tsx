@@ -9,7 +9,7 @@ interface Comment {
   content: string;
   author_id: string;
   created_at: string;
-  profiles: { display_name: string };
+  profiles: { display_name: string } | null;
 }
 
 export default function CommentSection({ postId }: { postId: string }) {
@@ -34,14 +34,18 @@ export default function CommentSection({ postId }: { postId: string }) {
     if (!content.trim() || !user) return;
     setPosting(true);
 
-    const { data, error } = await supabase
+    const { data: inserted, error } = await supabase
       .from("comments")
       .insert({ post_id: postId, author_id: user.id, content: content.trim() })
-      .select("id, content, author_id, created_at, profiles!inner(display_name)")
+      .select("id, content, author_id, created_at")
       .single();
 
-    if (!error && data) {
-      setComments((prev) => [...prev, data]);
+    if (!error && inserted) {
+      const displayName = user.user_metadata?.display_name || user.email?.split("@")[0] || "";
+      setComments((prev) => [
+        ...prev,
+        { ...inserted, profiles: { display_name: displayName } },
+      ]);
       setContent("");
     }
     setPosting(false);
@@ -81,10 +85,10 @@ export default function CommentSection({ postId }: { postId: string }) {
           <div key={c.id} className="bg-white/70 rounded-lg p-4 border border-cream-200">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-6 h-6 bg-cream-300 rounded-full flex items-center justify-center text-white text-[10px] font-bold">
-                {c.profiles.display_name.charAt(0)}
+                {(c.profiles?.display_name || "?").charAt(0)}
               </div>
               <span className="text-sm font-medium text-cream-800">
-                {c.profiles.display_name}
+                {c.profiles?.display_name || "匿名"}
               </span>
               <span className="text-xs text-cream-400">
                 {formatDate(c.created_at)}
