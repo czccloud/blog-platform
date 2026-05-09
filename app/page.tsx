@@ -23,7 +23,7 @@ export default async function HomePage() {
     <div className="max-w-2xl mx-auto px-4 py-8">
       {/* Title */}
       <h1 className="text-2xl font-bold text-cream-950 font-hand text-center mb-6">
-        ✂️ 我们的剪贴簿
+        🏠 我们的剪贴簿
       </h1>
 
       {/* Tab navigation */}

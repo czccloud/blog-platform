@@ -24,7 +24,7 @@ export default function Header() {
     <header className="border-b border-cream-200 bg-cream-50/80 backdrop-blur sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link href="/" className="font-bold text-cream-950 text-lg">
-          ✂️ 我们的剪贴簿
+          🏠 我们的剪贴簿
         </Link>
         <nav className="flex items-center gap-4 text-sm">
           <Link href="/photos" className="text-cream-600 hover:text-cream-700">
