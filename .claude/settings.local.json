@@ -20,7 +20,8 @@
       "WebSearch",
       "Bash(npx skills *)",
       "Bash(python3 *)",
-      "Bash(bash *)"
+      "Bash(bash *)",
+      "Bash(curl -s \"https://poetic-pasca-eddfe2.netlify.app\")"
     ]
   }
 }
