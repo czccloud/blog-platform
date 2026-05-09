@@ -17,7 +17,50 @@
 }
 
 body {
-  background: linear-gradient(135deg, var(--color-cream-50), var(--color-cream-100));
+  background-color: var(--color-cream-50);
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(232, 196, 162, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(196, 149, 106, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, var(--color-cream-50) 0%, var(--color-cream-100) 100%);
   min-height: 100vh;
   color: var(--color-cream-950);
+}
+
+/* Scrapbook paper texture on cards */
+.card-paper {
+  background: linear-gradient(180deg, #fffef9 0%, #fefcf5 50%, #fdf9f0 100%);
+  box-shadow:
+    0 1px 2px rgba(139, 111, 94, 0.06),
+    0 4px 16px rgba(139, 111, 94, 0.05);
+}
+
+/* Tape effect */
+.tape {
+  position: absolute;
+  background: rgba(232, 196, 162, 0.35);
+  backdrop-filter: blur(2px);
+  border-radius: 2px;
+}
+
+/* Handwritten-style emphasis */
+.font-hand {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* Smooth image hover */
+.img-hover {
+  transition: transform 0.3s ease;
+}
+.img-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Decorative divider */
+.divider-dot {
+  width: 4px;
+  height: 4px;
+  background: var(--color-cream-400);
+  border-radius: 50%;
+  display: inline-block;
 }

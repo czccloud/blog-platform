@@ -22,25 +22,38 @@ export default function PostCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/posts/${post.slug}`}
-      className="block bg-white rounded-lg p-4 border border-cream-200 hover:border-cream-300 transition-colors relative"
+      className="block card-paper rounded-xl p-3 border border-cream-200 hover:border-cream-300 transition-all relative group"
     >
-      <div className="absolute -top-2 right-4 w-8 h-3 bg-cream-400/60 rounded-sm rotate-3" />
-      <div className="flex gap-3 items-start">
-        {post.cover_image ? (
-          <img src={post.cover_image} alt="" className="w-12 h-12 rounded-md object-cover flex-shrink-0" />
-        ) : (
-          <div className="w-12 h-12 bg-gradient-to-br from-cream-300 to-cream-400 rounded-md flex items-center justify-center text-xl flex-shrink-0">
-            {weatherEmoji}
-          </div>
-        )}
-        <div className="min-w-0">
-          <h3 className="font-semibold text-cream-950 text-sm truncate">{post.title}</h3>
-          <p className="text-xs text-cream-500 mt-0.5">
-            {post.profiles.display_name} · {formatDate(post.created_at)}
+      {/* Tiny tape */}
+      <div className="tape absolute -top-1.5 right-3 w-8 h-2.5 rotate-3" />
+
+      <div className="flex gap-3">
+        {/* Thumbnail */}
+        <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-cream-100">
+          {post.cover_image ? (
+            <img src={post.cover_image} alt="" className="w-full h-full object-cover img-hover" />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-cream-200 to-cream-300 flex items-center justify-center text-2xl">
+              {weatherEmoji}
+            </div>
+          )}
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <h3 className="font-semibold text-cream-950 text-sm truncate group-hover:text-cream-700 transition-colors">
+            {post.title}
+          </h3>
+          <div className="flex items-center gap-1.5 text-xs text-cream-400 mt-1">
+            <span>{post.profiles.display_name}</span>
+            <span>·</span>
+            <span>{formatDate(post.created_at)}</span>
             {post.comments?.[0]?.count > 0 && (
-              <span className="ml-2">💬 {post.comments[0].count}</span>
+              <>
+                <span>·</span>
+                <span>💬 {post.comments[0].count}</span>
+              </>
             )}
-          </p>
+          </div>
         </div>
       </div>
     </Link>
