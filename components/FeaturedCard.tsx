@@ -36,11 +36,17 @@ export default function FeaturedCard({ post }: { post: Post }) {
       <h2 className="text-lg font-bold text-cream-950 mb-2">{post.title}</h2>
       <p className="text-sm text-cream-700 mb-3 line-clamp-2">{post.excerpt}</p>
       {post.location && <p className="text-xs text-cream-400 mb-2">📍 {post.location}</p>}
-      <div className="flex gap-2 mb-3">
-        <div className="h-10 flex-1 bg-gradient-to-br from-green-200 to-green-300 rounded" />
-        <div className="h-10 flex-1 bg-gradient-to-br from-orange-200 to-orange-300 rounded" />
-        <div className="h-10 flex-1 bg-gradient-to-br from-blue-200 to-blue-300 rounded" />
-      </div>
+      {post.cover_image ? (
+        <div className="mb-3 h-40 rounded-lg overflow-hidden">
+          <img src={post.cover_image} alt="" className="w-full h-full object-cover" />
+        </div>
+      ) : (
+        <div className="flex gap-2 mb-3">
+          <div className="h-10 flex-1 bg-gradient-to-br from-green-200 to-green-300 rounded" />
+          <div className="h-10 flex-1 bg-gradient-to-br from-orange-200 to-orange-300 rounded" />
+          <div className="h-10 flex-1 bg-gradient-to-br from-blue-200 to-blue-300 rounded" />
+        </div>
+      )}
       <div className="text-xs text-cream-500 flex items-center gap-2">
         <span>{post.profiles.display_name} · {formatDate(post.created_at)}</span>
         {post.comments?.[0]?.count > 0 && (

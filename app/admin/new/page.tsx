@@ -13,9 +13,34 @@ export default function NewPostPage() {
   const [weather, setWeather] = useState("");
   const [mood, setMood] = useState("");
   const [location, setLocation] = useState("");
+  const [coverImage, setCoverImage] = useState("");
+  const [uploadingCover, setUploadingCover] = useState(false);
   const [saving, setSaving] = useState(false);
   const router = useRouter();
   const supabase = createClient();
+
+  const handleCoverUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !file.type.startsWith("image/")) return;
+    setUploadingCover(true);
+
+    const ext = file.name.split(".").pop() || "jpg";
+    const fileName = `cover_${Date.now()}.${ext}`;
+    const { data, error } = await supabase.storage
+      .from("blog-images")
+      .upload(fileName, file);
+
+    if (!error && data) {
+      const { data: urlData } = supabase.storage.from("blog-images").getPublicUrl(data.path);
+      setCoverImage(urlData.publicUrl);
+    }
+    setUploadingCover(false);
+  };
+
+  const extractFirstImage = (md: string): string => {
+    const match = md.match(/!\[.*?\]\((https?:\/\/[^\s)]+)\)/);
+    return match ? match[1] : "";
+  };
 
   const save = async (status: "draft" | "published") => {
     setSaving(true);
@@ -23,12 +48,14 @@ export default function NewPostPage() {
     if (!userData.user) return;
 
     const slug = slugify(title) || `post-${Date.now()}`;
+    const cover = coverImage || extractFirstImage(content);
 
     const { error } = await supabase.from("posts").insert({
       title,
       slug,
       content,
       excerpt: content.replace(/[#*`!\[\]()]/g, "").substring(0, 150),
+      cover_image: cover,
       author_id: userData.user.id,
       status,
       weather,
@@ -94,7 +121,25 @@ export default function NewPostPage() {
           placeholder="📍 地点"
           className="px-3 py-1 border border-cream-200 rounded-full text-xs bg-cream-50 text-cream-700 w-32"
         />
+        <label className="px-3 py-1 border border-dashed border-cream-300 rounded-full text-xs bg-cream-50 text-cream-500 cursor-pointer hover:border-cream-400">
+          {uploadingCover ? "上传中..." : coverImage ? "🖼️ 封面已选" : "🖼️ 封面图"}
+          <input type="file" accept="image/*" onChange={handleCoverUpload} className="hidden" />
+        </label>
+        {coverImage && (
+          <button
+            onClick={() => setCoverImage("")}
+            className="text-xs text-red-400 hover:text-red-500"
+          >
+            移除
+          </button>
+        )}
       </div>
+
+      {coverImage && (
+        <div className="mb-4 h-32 rounded-lg overflow-hidden">
+          <img src={coverImage} alt="封面预览" className="w-full h-full object-cover" />
+        </div>
+      )}
 
       <input
         type="text"
