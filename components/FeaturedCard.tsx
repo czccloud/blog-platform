@@ -13,6 +13,7 @@ interface Post {
   weather: string;
   mood: string;
   location: string;
+  comments: { count: number }[];
 }
 
 export default function FeaturedCard({ post }: { post: Post }) {
@@ -40,8 +41,11 @@ export default function FeaturedCard({ post }: { post: Post }) {
         <div className="h-10 flex-1 bg-gradient-to-br from-orange-200 to-orange-300 rounded" />
         <div className="h-10 flex-1 bg-gradient-to-br from-blue-200 to-blue-300 rounded" />
       </div>
-      <div className="text-xs text-cream-500">
-        {post.profiles.display_name} · {formatDate(post.created_at)}
+      <div className="text-xs text-cream-500 flex items-center gap-2">
+        <span>{post.profiles.display_name} · {formatDate(post.created_at)}</span>
+        {post.comments?.[0]?.count > 0 && (
+          <span>💬 {post.comments[0].count} 封回信</span>
+        )}
       </div>
     </Link>
   );

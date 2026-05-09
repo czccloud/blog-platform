@@ -11,6 +11,7 @@ interface Post {
   profiles: { display_name: string };
   created_at: string;
   weather: string;
+  comments: { count: number }[];
 }
 
 export default function PostCard({ post }: { post: Post }) {
@@ -32,6 +33,9 @@ export default function PostCard({ post }: { post: Post }) {
           <h3 className="font-semibold text-cream-950 text-sm truncate">{post.title}</h3>
           <p className="text-xs text-cream-500 mt-0.5">
             {post.profiles.display_name} · {formatDate(post.created_at)}
+            {post.comments?.[0]?.count > 0 && (
+              <span className="ml-2">💬 {post.comments[0].count}</span>
+            )}
           </p>
         </div>
       </div>
