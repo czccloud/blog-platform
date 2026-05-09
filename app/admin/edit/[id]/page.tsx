@@ -15,7 +15,7 @@ export default function EditPostPage() {
   const [weather, setWeather] = useState("");
   const [mood, setMood] = useState("");
   const [location, setLocation] = useState("");
-  const [coverImage, setCoverImage] = useState<string | null>(null);
+  const [coverImage, setCoverImage] = useState("");
   const [uploadingCover, setUploadingCover] = useState(false);
   const [status, setStatus] = useState<"draft" | "published">("draft");
   const [saving, setSaving] = useState(false);
@@ -36,7 +36,7 @@ export default function EditPostPage() {
           setWeather(data.weather || "");
           setMood(data.mood || "");
           setLocation(data.location || "");
-          setCoverImage(data.cover_image || null);
+          setCoverImage(data.cover_image || "");
           setStatus(data.status);
         }
         setLoading(false);
@@ -68,7 +68,7 @@ export default function EditPostPage() {
 
   const save = async (newStatus: "draft" | "published") => {
     setSaving(true);
-    const cover = coverImage !== null ? coverImage : extractFirstImage(content);
+    const cover = coverImage || extractFirstImage(content);
 
     const { error } = await supabase
       .from("posts")
@@ -146,20 +146,20 @@ export default function EditPostPage() {
           className="px-3 py-1 border border-cream-200 rounded-full text-xs bg-cream-50 text-cream-700 w-32"
         />
         <label className="px-3 py-1 border border-dashed border-cream-300 rounded-full text-xs bg-cream-50 text-cream-500 cursor-pointer hover:border-cream-400">
-          {uploadingCover ? "上传中..." : coverImage !== null && coverImage !== "" ? "🖼️ 封面已选" : "🖼️ 封面图"}
+          {uploadingCover ? "上传中..." : coverImage ? "🖼️ 封面已选" : "🖼️ 封面图"}
           <input type="file" accept="image/*" onChange={handleCoverUpload} className="hidden" />
         </label>
-        {coverImage !== null && coverImage !== "" && (
+        {coverImage && (
           <button
             onClick={() => setCoverImage("")}
             className="text-xs text-red-400 hover:text-red-500"
           >
-            移除封面
+            清除
           </button>
         )}
       </div>
 
-      {coverImage !== null && coverImage !== "" && (
+      {coverImage && (
         <div className="mb-4 h-32 rounded-lg overflow-hidden">
           <img src={coverImage} alt="封面预览" className="w-full h-full object-cover" />
         </div>
