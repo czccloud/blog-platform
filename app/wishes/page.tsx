@@ -48,8 +48,10 @@ export default function WishesPage() {
     const { error } = await supabase.from("wishes").insert({
       content: content.trim(),
       author_id: user.id,
-    });
-    if (!error) {
+    }).select();
+    if (error) {
+      alert("许愿失败: " + error.message);
+    } else {
       setContent("");
       fetchWishes();
     }
