@@ -43,7 +43,8 @@ export default function WishesPage() {
   };
 
   const handleAdd = async () => {
-    if (!content.trim() || !user) return;
+    if (!content.trim()) { alert("请输入心愿内容"); return; }
+    if (!user) { alert("请先登录"); return; }
     setAdding(true);
     const { error } = await supabase.from("wishes").insert({
       content: content.trim(),
@@ -102,7 +103,7 @@ export default function WishesPage() {
           />
           <button
             onClick={handleAdd}
-            disabled={adding || !content.trim()}
+            disabled={adding}
             className="px-5 py-2 bg-cream-500 text-white rounded-full text-sm hover:bg-cream-600 disabled:opacity-50"
           >
             {adding ? "..." : "许愿"}
