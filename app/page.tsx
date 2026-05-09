@@ -17,6 +17,7 @@ export default async function HomePage() {
     .limit(20);
 
   const postList = (posts as any[]) || [];
+  const weatherMap: Record<string, string> = { "晴": "☀️", "雨": "🌧️", "阴": "☁️", "雪": "❄️" };
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
@@ -73,7 +74,7 @@ export default async function HomePage() {
                       <>
                         <span>·</span>
                         <span>
-                          {{ "晴": "☀️", "雨": "🌧️", "阴": "☁️", "雪": "❄️" }[post.weather] || post.weather}
+                          {weatherMap[post.weather] || post.weather}
                         </span>
                       </>
                     )}
