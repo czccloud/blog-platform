@@ -15,7 +15,8 @@
       "Bash(mkdir -p /tmp/next-scaffold)",
       "Read(//tmp/**)",
       "Bash(npx create-next-app@15 . --typescript --tailwind --eslint --app --src-dir=false --import-alias=\"@/*\" --use-npm --no-turbopack)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(npm run *)"
     ]
   }
 }
