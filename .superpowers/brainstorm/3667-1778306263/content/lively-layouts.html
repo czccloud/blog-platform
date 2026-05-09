@@ -1,0 +1,165 @@
+<h2>更活泼的首页布局</h2>
+<p class="subtitle">三种更有趣、更生活化的设计方案</p>
+
+<div class="cards">
+  <div class="card" data-choice="bento" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;padding:12px;background:linear-gradient(135deg,#fef9f0,#fdf2e3)">
+        <h2 style="text-align:center;color:#3d2b1f;font-size:14px;margin:0 0 12px 0">✂️ 我们的剪贴簿</h2>
+        <!-- Bento grid: irregular tiles -->
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px">
+          <div style="background:#fffef9;border-radius:12px;border:2px dashed #e8d5c4;padding:14px;position:relative">
+            <div style="position:absolute;top:-4px;left:20px;width:30px;height:10px;background:rgba(232,196,162,0.4);border-radius:2px;transform:rotate(-3deg)"></div>
+            <div style="display:flex;gap:10px">
+              <div style="flex:1">
+                <div style="font-size:15px;font-weight:700;color:#3d2b1f;margin-bottom:4px">⛰️ 春天来了，去爬山吧</div>
+                <div style="font-size:10px;color:#8b6f5e;line-height:1.4;margin-bottom:6px">三月的风还带着凉意，但阳光已经暖洋洋的了。我们决定去爬城郊那座小山...</div>
+                <div style="font-size:9px;color:#c4956a">👤 张三 · 3月15日 · 💬 3</div>
+              </div>
+              <div style="width:80px;height:80px;background:linear-gradient(135deg,#7ec8a0,#5daa80);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px">⛰️</div>
+            </div>
+          </div>
+          <div style="background:#fffef9;border-radius:12px;border:2px dotted #e8c4a2;padding:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+            <div style="font-size:28px;margin-bottom:4px">🍲</div>
+            <div style="font-size:12px;font-weight:700;color:#3d2b1f;margin-bottom:2px">在家煮汤</div>
+            <div style="font-size:8px;color:#999">李四 · 3/10</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 2fr;gap:8px;margin-top:8px">
+          <div style="background:#fffef9;border-radius:12px;border:2px dotted #e8c4a2;padding:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+            <div style="font-size:28px;margin-bottom:4px">☕</div>
+            <div style="font-size:12px;font-weight:700;color:#3d2b1f;margin-bottom:2px">新咖啡馆</div>
+            <div style="font-size:8px;color:#999">张三 · 3/1</div>
+          </div>
+          <div style="background:#fffef9;border-radius:12px;border:2px dashed #e8d5c4;padding:14px;position:relative">
+            <div style="position:absolute;top:-4px;right:20px;width:24px;height:8px;background:rgba(232,196,162,0.4);border-radius:2px;transform:rotate(2deg)"></div>
+            <div style="display:flex;gap:10px">
+              <div style="width:70px;height:70px;background:linear-gradient(135deg,#8badd4,#5a82a8);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px">📚</div>
+              <div style="flex:1">
+                <div style="font-size:13px;font-weight:700;color:#3d2b1f;margin-bottom:3px">最近在读的书</div>
+                <div style="font-size:10px;color:#8b6f5e;line-height:1.4;margin-bottom:4px">分享几本最近读到的好书...</div>
+                <div style="font-size:9px;color:#c4956a">👤 王五 · 3月5日 · 💬 5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:8px">
+          <div style="background:#fffef9;border-radius:10px;border:1px solid #f0e6da;padding:8px;text-align:center">
+            <div style="font-size:22px;margin-bottom:2px">🎂</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f">生日派对</div>
+            <div style="font-size:7px;color:#999">李四 · 2/22</div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;border:1px solid #f0e6da;padding:8px;text-align:center">
+            <div style="font-size:22px;margin-bottom:2px">🌿</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f">阳台花园</div>
+            <div style="font-size:7px;color:#999">张三 · 2/15</div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;border:1px solid #f0e6da;padding:8px;text-align:center">
+            <div style="font-size:22px;margin-bottom:2px">✈️</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f">说走就走</div>
+            <div style="font-size:7px;color:#999">张三 · 2/1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>便当盒布局</h3>
+      <p>大小不一的卡片像便当盒里的格子——有的横跨两列，有的是小方块。虚实线边框 + 胶带装饰，活泼有趣。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="polaroid-wall" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;padding:12px;background:linear-gradient(135deg,#fef9f0,#fdf2e3)">
+        <h2 style="text-align:center;color:#3d2b1f;font-size:14px;margin:0 0 16px 0">📸 生活影集</h2>
+        <!-- Polaroid wall: cards at slight angles -->
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+          <div style="background:#fff;padding:8px 8px 28px 8px;border-radius:3px;box-shadow:3px 3px 10px rgba(139,111,94,0.12);transform:rotate(-2deg);width:130px">
+            <div style="height:90px;background:linear-gradient(135deg,#7ec8a0,#5daa80);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px">⛰️</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f;margin-top:6px;text-align:center">春天，去爬山</div>
+            <div style="font-size:7px;color:#999;text-align:center;margin-top:2px">张三 · 3/15</div>
+          </div>
+          <div style="background:#fff;padding:8px 8px 28px 8px;border-radius:3px;box-shadow:3px 3px 10px rgba(139,111,94,0.12);transform:rotate(1.5deg);width:130px">
+            <div style="height:90px;background:linear-gradient(135deg,#e8b88a,#d4a06a);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px">🍲</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f;margin-top:6px;text-align:center">家的味道</div>
+            <div style="font-size:7px;color:#999;text-align:center;margin-top:2px">李四 · 3/10</div>
+          </div>
+          <div style="background:#fff;padding:8px 8px 28px 8px;border-radius:3px;box-shadow:3px 3px 10px rgba(139,111,94,0.12);transform:rotate(-1deg);width:130px">
+            <div style="height:90px;background:linear-gradient(135deg,#8badd4,#5a82a8);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px">📚</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f;margin-top:6px;text-align:center">最近读的书</div>
+            <div style="font-size:7px;color:#999;text-align:center;margin-top:2px">王五 · 3/5</div>
+          </div>
+          <div style="background:#fff;padding:8px 8px 28px 8px;border-radius:3px;box-shadow:3px 3px 10px rgba(139,111,94,0.12);transform:rotate(2.5deg);width:130px">
+            <div style="height:90px;background:linear-gradient(135deg,#c49a7c,#a67b5b);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px">☕</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f;margin-top:6px;text-align:center">新发现的店</div>
+            <div style="font-size:7px;color:#999;text-align:center;margin-top:2px">张三 · 3/1</div>
+          </div>
+          <div style="background:#fff;padding:8px 8px 28px 8px;border-radius:3px;box-shadow:3px 3px 10px rgba(139,111,94,0.12);transform:rotate(-0.5deg);width:130px">
+            <div style="height:90px;background:linear-gradient(135deg,#a8c4a2,#8bb09a);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px">🎂</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f;margin-top:6px;text-align:center">生日派对</div>
+            <div style="font-size:7px;color:#999;text-align:center;margin-top:2px">李四 · 2/22</div>
+          </div>
+          <div style="background:#fff;padding:8px 8px 28px 8px;border-radius:3px;box-shadow:3px 3px 10px rgba(139,111,94,0.12);transform:rotate(-3deg);width:130px">
+            <div style="height:90px;background:linear-gradient(135deg,#d4b896,#c4a87c);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px">🌿</div>
+            <div style="font-size:10px;font-weight:600;color:#3d2b1f;margin-top:6px;text-align:center">阳台小花园</div>
+            <div style="font-size:7px;color:#999;text-align:center;margin-top:2px">张三 · 2/15</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>拍立得照片墙</h3>
+      <p>每篇文章像一张拍立得照片，微微倾斜排列，像贴在墙上的照片墙。白色边框 + 阴影营造真实感。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="waterfall" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="font-family:system-ui,sans-serif;max-width:600px;margin:0 auto;padding:12px;background:linear-gradient(135deg,#fef9f0,#fdf2e3)">
+        <h2 style="text-align:center;color:#3d2b1f;font-size:14px;margin:0 0 12px 0">🌈 生活碎片</h2>
+        <!-- Masonry/waterfall: 3 cols, varying heights -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;align-items:start">
+          <div style="background:#fffef9;border-radius:10px;overflow:hidden;border:1px solid #f0e6da">
+            <div style="height:110px;background:linear-gradient(135deg,#7ec8a0,#5daa80);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px">⛰️</div>
+            <div style="padding:8px"><div style="font-size:10px;font-weight:700;color:#3d2b1f">春天，去爬山</div><div style="font-size:7px;color:#999;margin-top:2px">张三 · 3/15</div></div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;overflow:hidden;border:1px solid #f0e6da">
+            <div style="padding:12px;text-align:center">
+              <div style="font-size:32px;margin-bottom:4px">🍲</div>
+              <div style="font-size:11px;font-weight:700;color:#3d2b1f">在家煮一锅热汤</div>
+              <div style="font-size:9px;color:#8b6f5e;line-height:1.3;margin:4px 0">下雨天最适合...</div>
+              <div style="font-size:7px;color:#999;margin-top:4px">李四 · 3/10 · 💬 1</div>
+            </div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;overflow:hidden;border:1px solid #f0e6da">
+            <div style="height:70px;background:linear-gradient(135deg,#8badd4,#5a82a8);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px">📚</div>
+            <div style="padding:8px"><div style="font-size:10px;font-weight:700;color:#3d2b1f">最近在读的书</div><div style="font-size:7px;color:#999;margin-top:2px">王五 · 3/5</div></div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;overflow:hidden;border:1px solid #f0e6da">
+            <div style="padding:12px;text-align:center;background:linear-gradient(135deg,#fef9f0,#fdf2e3)">
+              <div style="font-size:28px;margin-bottom:2px">☕</div>
+              <div style="font-size:10px;font-weight:700;color:#3d2b1f">新发现的咖啡馆</div>
+              <div style="font-size:7px;color:#999;margin-top:2px">张三 · 3/1</div>
+            </div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;overflow:hidden;border:1px solid #f0e6da">
+            <div style="height:100px;background:linear-gradient(135deg,#a8c4a2,#8bb09a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px">🎂</div>
+            <div style="padding:8px"><div style="font-size:10px;font-weight:700;color:#3d2b1f">妈妈的生日派对</div><div style="font-size:7px;color:#999;margin-top:2px">李四 · 2/22 · 💬 8</div></div>
+          </div>
+          <div style="background:#fffef9;border-radius:10px;overflow:hidden;border:1px solid #f0e6da">
+            <div style="padding:10px">
+              <div style="font-size:22px;text-align:center;margin-bottom:4px">🌿</div>
+              <div style="font-size:10px;font-weight:700;color:#3d2b1f;text-align:center">阳台上的小花园</div>
+              <div style="font-size:9px;color:#8b6f5e;line-height:1.3;margin:4px 0;text-align:center">春天播种...</div>
+              <div style="font-size:7px;color:#999;text-align:center;margin-top:4px">张三 · 2/15</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>瀑布流碎片</h3>
+      <p>三列不等高卡片——有的以图为主，有的是文字卡片。像生活碎片随机拼贴，轻松随意。</p>
+    </div>
+  </div>
+</div>

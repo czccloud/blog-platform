@@ -1,0 +1,73 @@
+<h2>文章多了之后的首页排版</h2>
+<p class="subtitle">当前布局：左侧精选大卡片 + 右侧文章列表，最多显示 20 篇</p>
+
+<div class="split">
+  <div class="mockup">
+    <div class="mockup-header">当前布局 — 10篇文章的效果</div>
+    <div class="mockup-body">
+      <div style="font-family:system-ui,sans-serif;max-width:700px;margin:0 auto;padding:16px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">
+          <div style="width:26px;height:26px;background:#c4956a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px">✂️</div>
+          <div style="font-weight:700;color:#3d2b1f;font-size:13px">我们的生活记录</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 0.9fr;gap:12px">
+          <!-- Featured card -->
+          <div style="background:#fffef9;border-radius:12px;overflow:hidden;border:1px solid #f0e6da;position:relative">
+            <div style="position:absolute;top:-5px;left:18px;width:28px;height:10px;background:rgba(232,196,162,0.35);border-radius:2px;transform:rotate(-3deg)"></div>
+            <div style="height:130px;background:linear-gradient(135deg,#8bbd9e,#6da880);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px">⛰️</div>
+            <div style="padding:10px 12px">
+              <div style="font-size:9px;color:#c4956a;margin-bottom:3px">📌 精选 · ☀️ · 😊</div>
+              <div style="font-weight:700;color:#3d2b1f;font-size:14px;margin-bottom:3px">春天来了，去爬山吧</div>
+              <div style="font-size:10px;color:#8b6f5e;line-height:1.4;margin-bottom:6px">三月的风还带着凉意，但阳光已经暖洋洋的了。我们决定去爬城郊那座小山...</div>
+              <div style="font-size:9px;color:#bbb;display:flex;justify-content:space-between">
+                <span>张 · 3月15日</span><span>💬 3 封回信</span>
+              </div>
+            </div>
+          </div>
+          <!-- List column -->
+          <div style="display:flex;flex-direction:column;gap:6px;max-height:400px;overflow:hidden">
+            <div style="background:#fffef9;border-radius:8px;padding:8px 10px;border:1px solid #f0e6da;display:flex;gap:8px;position:relative">
+              <div style="position:absolute;top:-4px;right:12px;width:22px;height:6px;background:rgba(232,196,162,0.3);border-radius:1px;transform:rotate(3deg)"></div>
+              <div style="width:42px;height:42px;background:linear-gradient(135deg,#e8b88a,#d4a06a);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">🍲</div>
+              <div style="min-width:0"><div style="font-size:11px;font-weight:600;color:#3d2b1f">在家煮一锅热汤</div><div style="font-size:8px;color:#999">李四 · 3月10日 · 💬 1</div></div>
+            </div>
+            <div style="background:#fffef9;border-radius:8px;padding:8px 10px;border:1px solid #f0e6da;display:flex;gap:8px;position:relative">
+              <div style="position:absolute;top:-4px;right:12px;width:22px;height:6px;background:rgba(232,196,162,0.3);border-radius:1px;transform:rotate(3deg)"></div>
+              <div style="width:42px;height:42px;background:linear-gradient(135deg,#8badd4,#5a82a8);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">📚</div>
+              <div style="min-width:0"><div style="font-size:11px;font-weight:600;color:#3d2b1f">最近在读的书</div><div style="font-size:8px;color:#999">王五 · 3月5日 · 💬 5</div></div>
+            </div>
+            <div style="background:#fffef9;border-radius:8px;padding:8px 10px;border:1px solid #f0e6da;display:flex;gap:8px">
+              <div style="width:42px;height:42px;background:linear-gradient(135deg,#c49a7c,#a67b5b);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">☕</div>
+              <div style="min-width:0"><div style="font-size:11px;font-weight:600;color:#3d2b1f">新发现的咖啡馆</div><div style="font-size:8px;color:#999">张三 · 3月1日 · 💬 2</div></div>
+            </div>
+            <div style="background:#fffef9;border-radius:8px;padding:8px 10px;border:1px solid #f0e6da;display:flex;gap:8px">
+              <div style="width:42px;height:42px;background:linear-gradient(135deg,#a8c4a2,#8bb09a);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">🎂</div>
+              <div style="min-width:0"><div style="font-size:11px;font-weight:600;color:#3d2b1f">妈妈的生日派对</div><div style="font-size:8px;color:#999">李四 · 2月22日 · 💬 8</div></div>
+            </div>
+            <div style="background:#fffef9;border-radius:8px;padding:8px 10px;border:1px solid #f0e6da;display:flex;gap:8px">
+              <div style="width:42px;height:42px;background:linear-gradient(135deg,#d4b896,#c4a87c);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">🌿</div>
+              <div style="min-width:0"><div style="font-size:11px;font-weight:600;color:#3d2b1f">阳台上的小花园</div><div style="font-size:8px;color:#999">张三 · 2月15日</div></div>
+            </div>
+            <div style="background:#fffef9;border-radius:8px;padding:8px 10px;border:1px solid #f0e6da;display:flex;gap:8px">
+              <div style="width:42px;height:42px;background:linear-gradient(135deg,#b8a4c8,#9a84b0);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px">🎵</div>
+              <div style="min-width:0"><div style="font-size:11px;font-weight:600;color:#3d2b1f">最近爱听的歌单</div><div style="font-size:8px;color:#999">王五 · 2月10日</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:14px">
+          <span style="background:#f0e6da;color:#8b6f5e;padding:4px 14px;border-radius:12px;font-size:10px">← 更早的记录 第 2 页 →</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:24px">
+  <h3>排版规则</h3>
+  <ul style="line-height:2">
+    <li><strong>左侧（大卡片）</strong>：最新一篇独占，显示大封面图 + 摘要</li>
+    <li><strong>右侧（列表）</strong>：其余文章，紧凑排列，一屏能看 6-8 篇</li>
+    <li><strong>分页</strong>：超过 20 篇出现翻页器</li>
+    <li><strong>封面图</strong>：有图展示图，无图只有文字，不占多余空间</li>
+  </ul>
+</div>
