@@ -9,7 +9,13 @@ interface Comment {
   content: string;
   author_id: string;
   created_at: string;
-  profiles: { display_name: string } | null;
+  profiles: { display_name: string } | { display_name: string }[] | null;
+}
+
+function getDisplayName(c: Comment): string {
+  if (!c.profiles) return "匿名";
+  if (Array.isArray(c.profiles)) return c.profiles[0]?.display_name || "匿名";
+  return c.profiles.display_name || "匿名";
 }
 
 export default function CommentSection({ postId }: { postId: string }) {
@@ -47,9 +53,9 @@ export default function CommentSection({ postId }: { postId: string }) {
       setError("发送失败：" + insertErr.message);
     } else if (inserted) {
       const displayName = user.user_metadata?.display_name || user.email?.split("@")[0] || "匿名";
-      setComments((prev) => [
+      setComments((prev: Comment[]) => [
         ...prev,
-        { ...inserted, profiles: { display_name: displayName } },
+        { ...inserted, profiles: { display_name: displayName } } as Comment,
       ]);
       setContent("");
     }
@@ -90,10 +96,10 @@ export default function CommentSection({ postId }: { postId: string }) {
           <div key={c.id} className="bg-white/70 rounded-lg p-4 border border-cream-200">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-6 h-6 bg-cream-300 rounded-full flex items-center justify-center text-white text-[10px] font-bold">
-                {(c.profiles?.display_name || "?").charAt(0)}
+                {getDisplayName(c).charAt(0)}
               </div>
               <span className="text-sm font-medium text-cream-800">
-                {c.profiles?.display_name || "匿名"}
+                {getDisplayName(c)}
               </span>
               <span className="text-xs text-cream-400">
                 {formatDate(c.created_at)}
