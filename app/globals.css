@@ -13,28 +13,55 @@
   --color-cream-900: #5c4033;
   --color-cream-950: #3d2b1f;
 
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
 }
 
 body {
   background-color: var(--color-cream-50);
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(232, 196, 162, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(196, 149, 106, 0.06) 0%, transparent 50%),
-    linear-gradient(180deg, var(--color-cream-50) 0%, var(--color-cream-100) 100%);
+    radial-gradient(circle at 20% 30%, rgba(232, 196, 162, 0.10) 0%, transparent 60%),
+    radial-gradient(circle at 75% 60%, rgba(196, 149, 106, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(232, 196, 162, 0.06) 0%, transparent 40%);
   min-height: 100vh;
   color: var(--color-cream-950);
 }
 
-/* Scrapbook paper texture on cards */
-.card-paper {
-  background: linear-gradient(180deg, #fffef9 0%, #fefcf5 50%, #fdf9f0 100%);
+/* Claymorphism card */
+.card-clay {
+  background: #fffef9;
+  border-radius: 20px;
+  border: 3px solid var(--color-cream-200);
   box-shadow:
-    0 1px 2px rgba(139, 111, 94, 0.06),
-    0 4px 16px rgba(139, 111, 94, 0.05);
+    0 6px 0 var(--color-cream-200),
+    0 8px 24px rgba(139, 111, 94, 0.08);
+  transition: all 0.25s ease-out;
+}
+.card-clay:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 0 var(--color-cream-300),
+    0 12px 32px rgba(139, 111, 94, 0.12);
 }
 
-/* Tape effect */
+/* Card without 3D bottom */
+.card-clay-flat {
+  background: #fffef9;
+  border-radius: 20px;
+  border: 2px solid var(--color-cream-200);
+  box-shadow:
+    0 3px 0 var(--color-cream-200),
+    0 6px 16px rgba(139, 111, 94, 0.06);
+  transition: all 0.25s ease-out;
+}
+.card-clay-flat:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 5px 0 var(--color-cream-300),
+    0 8px 20px rgba(139, 111, 94, 0.10);
+}
+
+/* Tape decoration */
 .tape {
   position: absolute;
   background: rgba(232, 196, 162, 0.35);
@@ -42,21 +69,20 @@ body {
   border-radius: 2px;
 }
 
-/* Handwritten-style emphasis */
+/* Font classes */
 .font-hand {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: "Fredoka", Georgia, serif;
 }
 
 /* Smooth image hover */
 .img-hover {
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 .img-hover:hover {
-  transform: scale(1.02);
+  transform: scale(1.04);
 }
 
-/* Decorative divider */
+/* Divider dot */
 .divider-dot {
   width: 4px;
   height: 4px;
