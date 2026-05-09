@@ -77,9 +77,7 @@ function FeaturedCard({ post, index }: { post: Post; index: number }) {
 
       {/* Cover image */}
       {post.cover_image && (
-        <div className="h-40 overflow-hidden rounded-t-[17px]">
-          <img src={post.cover_image} alt="" className="w-full h-full object-cover img-hover" />
-        </div>
+        <img src={post.cover_image} alt="" className="w-full rounded-t-[17px] img-hover" />
       )}
 
       <div className="p-4">
@@ -116,9 +114,7 @@ function PostCard({ post }: { post: Post }) {
       className="card-clay-flat overflow-hidden group relative"
     >
       {post.cover_image && (
-        <div className="h-28 overflow-hidden rounded-t-[18px]">
-          <img src={post.cover_image} alt="" className="w-full h-full object-cover img-hover" />
-        </div>
+        <img src={post.cover_image} alt="" className="w-full rounded-t-[18px] img-hover" />
       )}
 
       <div className="p-3">
