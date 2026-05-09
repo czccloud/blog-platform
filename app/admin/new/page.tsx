@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import MarkdownEditor from "@/components/MarkdownEditor";
 import MarkdownPreview from "@/components/MarkdownPreview";
 import { createClient } from "@/lib/supabase/client";
-import { slugify } from "@/lib/utils";
+import { slugify, cleanExcerpt } from "@/lib/utils";
 
 export default function NewPostPage() {
   const [title, setTitle] = useState("");
@@ -54,7 +54,7 @@ export default function NewPostPage() {
       title,
       slug,
       content,
-      excerpt: content.replace(/[#*`!\[\]()]/g, "").substring(0, 150),
+      excerpt: cleanExcerpt(content),
       cover_image: cover,
       author_id: userData.user.id,
       status,

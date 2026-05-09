@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import MarkdownEditor from "@/components/MarkdownEditor";
 import MarkdownPreview from "@/components/MarkdownPreview";
 import { createClient } from "@/lib/supabase/client";
+import { cleanExcerpt } from "@/lib/utils";
 
 export default function EditPostPage() {
   const params = useParams();
@@ -74,7 +75,7 @@ export default function EditPostPage() {
       .update({
         title,
         content,
-        excerpt: content.replace(/[#*`!\[\]()]/g, "").substring(0, 150),
+        excerpt: cleanExcerpt(content),
         cover_image: cover,
         weather,
         mood,

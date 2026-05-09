@@ -14,3 +14,13 @@ export function formatDate(date: string): string {
     day: "numeric",
   });
 }
+
+export function cleanExcerpt(markdown: string): string {
+  return markdown
+    .replace(/!\[.*?\]\(.*?\)/g, "")   // 去掉图片
+    .replace(/\[([^\]]+)\]\(.*?\)/g, "$1") // 链接保留文字
+    .replace(/[#*`>|~]/g, "")          // 去掉 markdown 符号
+    .replace(/\n+/g, " ")              // 换行变空格
+    .trim()
+    .substring(0, 200);
+}
