@@ -27,12 +27,6 @@ export default function Header() {
           🏠 我们的剪贴簿
         </Link>
         <nav className="flex items-center gap-4 text-sm">
-          <Link href="/photos" className="text-cream-600 hover:text-cream-700">
-            📸 影集
-          </Link>
-          <Link href="/wishes" className="text-cream-600 hover:text-cream-700">
-            💝 心愿
-          </Link>
           {user ? (
             <>
               <Link href="/admin" className="text-cream-800 hover:text-cream-600">
