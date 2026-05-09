@@ -97,7 +97,7 @@ export default function AdminPage() {
                 </p>
               </div>
               <div className="flex gap-2 text-xs">
-                <Link href={`/admin/edit/${post.id}`} className="text-cream-600 hover:text-cream-700">
+                <Link href={`/admin/edit?id=${post.id}`} className="text-cream-600 hover:text-cream-700">
                   编辑
                 </Link>
                 <button onClick={() => handleDelete(post.id)} className="text-red-400 hover:text-red-500">
@@ -124,7 +124,7 @@ export default function AdminPage() {
                 </p>
               </div>
               <div className="flex gap-2 text-xs">
-                <Link href={`/admin/edit/${draft.id}`} className="text-cream-600 hover:text-cream-700">
+                <Link href={`/admin/edit?id=${draft.id}`} className="text-cream-600 hover:text-cream-700">
                   继续写
                 </Link>
                 <button onClick={() => handleDelete(draft.id)} className="text-red-400 hover:text-red-500">

@@ -17,7 +17,7 @@ interface Post {
 export default function PostCard({ post }: { post: Post }) {
   return (
     <Link
-      href={`/posts/${post.slug}`}
+      href={`/post?slug=${post.slug}`}
       className="block card-paper rounded-xl p-3 border border-cream-200 hover:border-cream-300 transition-all relative group"
     >
       {/* Tiny tape */}

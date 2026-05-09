@@ -68,7 +68,7 @@ function FeaturedCard({ post, index }: { post: Post; index: number }) {
 
   return (
     <Link
-      href={`/posts/${post.slug}`}
+      href={`/post?slug=${post.slug}`}
       className="card-clay overflow-hidden group relative"
     >
       {/* Tape */}
@@ -110,7 +110,7 @@ function FeaturedCard({ post, index }: { post: Post; index: number }) {
 function PostCard({ post }: { post: Post }) {
   return (
     <Link
-      href={`/posts/${post.slug}`}
+      href={`/post?slug=${post.slug}`}
       className="card-clay-flat overflow-hidden group relative"
     >
       {post.cover_image && (

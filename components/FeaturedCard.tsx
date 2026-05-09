@@ -24,7 +24,7 @@ export default function FeaturedCard({ post }: { post: Post }) {
 
   return (
     <Link
-      href={`/posts/${post.slug}`}
+      href={`/post?slug=${post.slug}`}
       className="block card-paper rounded-2xl overflow-hidden border border-cream-200 hover:border-cream-300 transition-all relative group"
     >
       {/* Tape decoration */}
