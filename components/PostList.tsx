@@ -13,6 +13,7 @@ interface Post {
   weather: string;
   mood: string;
   location: string;
+  comments: { count: number }[];
 }
 
 export default function PostList({ posts }: { posts: Post[] }) {
