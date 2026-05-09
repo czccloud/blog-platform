@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { formatDate } from "@/lib/utils";
 
@@ -17,6 +17,7 @@ export default function CommentSection({ postId }: { postId: string }) {
   const [content, setContent] = useState("");
   const [user, setUser] = useState<any>(null);
   const [posting, setPosting] = useState(false);
+  const [error, setError] = useState("");
   const supabase = createClient();
 
   useEffect(() => {
@@ -24,24 +25,28 @@ export default function CommentSection({ postId }: { postId: string }) {
 
     supabase
       .from("comments")
-      .select("id, content, author_id, created_at, profiles!inner(display_name)")
+      .select("id, content, author_id, created_at, profiles(display_name)")
       .eq("post_id", postId)
       .order("created_at", { ascending: true })
       .then(({ data }) => setComments(data || []));
   }, [postId]);
 
-  const handlePost = useCallback(async () => {
-    if (!content.trim() || !user) return;
+  const handlePost = async () => {
+    const trimmed = content.trim();
+    if (!trimmed || !user) return;
     setPosting(true);
+    setError("");
 
-    const { data: inserted, error } = await supabase
+    const { data: inserted, error: insertErr } = await supabase
       .from("comments")
-      .insert({ post_id: postId, author_id: user.id, content: content.trim() })
+      .insert({ post_id: postId, author_id: user.id, content: trimmed })
       .select("id, content, author_id, created_at")
       .single();
 
-    if (!error && inserted) {
-      const displayName = user.user_metadata?.display_name || user.email?.split("@")[0] || "";
+    if (insertErr) {
+      setError("发送失败：" + insertErr.message);
+    } else if (inserted) {
+      const displayName = user.user_metadata?.display_name || user.email?.split("@")[0] || "匿名";
       setComments((prev) => [
         ...prev,
         { ...inserted, profiles: { display_name: displayName } },
@@ -49,7 +54,7 @@ export default function CommentSection({ postId }: { postId: string }) {
       setContent("");
     }
     setPosting(false);
-  }, [content, user, postId]);
+  };
 
   return (
     <div className="mt-12 pt-8 border-t border-cream-200">
@@ -75,10 +80,10 @@ export default function CommentSection({ postId }: { postId: string }) {
           </button>
         </div>
       ) : (
-        <p className="text-sm text-cream-500 mb-8">
-          登录后才能回信
-        </p>
+        <p className="text-sm text-cream-500 mb-8">登录后才能回信</p>
       )}
+
+      {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
 
       <div className="space-y-4">
         {comments.map((c) => (
